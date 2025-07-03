@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09BFF6C22E0CA53F00237767 /* StreetViewPanorama.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BFF6C12E0CA52F00237767 /* StreetViewPanorama.swift */; };
 		8D14DB3E15A2BE992EB23716 /* Pods_knowhere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 485A988653D54BB92553705A /* Pods_knowhere.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		05A51FC8338ED394C4F37B1E /* Pods-knowhere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-knowhere.debug.xcconfig"; path = "Target Support Files/Pods-knowhere/Pods-knowhere.debug.xcconfig"; sourceTree = "<group>"; };
-		09BFF6C12E0CA52F00237767 /* StreetViewPanorama.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetViewPanorama.swift; sourceTree = "<group>"; };
 		09FC99D22DD59F47003717AD /* knowhere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = knowhere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		118915D970CBFD0516E66179 /* Pods-knowhere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-knowhere.release.xcconfig"; path = "Target Support Files/Pods-knowhere/Pods-knowhere.release.xcconfig"; sourceTree = "<group>"; };
 		485A988653D54BB92553705A /* Pods_knowhere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_knowhere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +53,6 @@
 		09FC99C92DD59F47003717AD = {
 			isa = PBXGroup;
 			children = (
-				09BFF6C12E0CA52F00237767 /* StreetViewPanorama.swift */,
 				09FC99D42DD59F47003717AD /* knowhere */,
 				09FC99D32DD59F47003717AD /* Products */,
 				267C74FE84ABB5F8A46F5316 /* Pods */,
@@ -100,6 +97,7 @@
 				09FC99CF2DD59F47003717AD /* Frameworks */,
 				09FC99D02DD59F47003717AD /* Resources */,
 				71D800F0DE3A00C8C4C4C0A4 /* [CP] Copy Pods Resources */,
+				C693122CCEC83EF8EAEAFB44 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,6 +137,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				09C821622E0CAD9100E995C4 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */,
+				097018D32E0FC912003BC579 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 09FC99D32DD59F47003717AD /* Products */;
@@ -200,6 +199,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-knowhere/Pods-knowhere-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C693122CCEC83EF8EAEAFB44 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-knowhere/Pods-knowhere-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-knowhere/Pods-knowhere-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-knowhere/Pods-knowhere-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -207,7 +223,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09BFF6C22E0CA53F00237767 /* StreetViewPanorama.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +436,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		097018D32E0FC912003BC579 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huri000/SwiftEntryKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		09C821622E0CAD9100E995C4 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/googlemaps/google-maps-ios-utils.git";

@@ -5,20 +5,24 @@ PODS:
   - GoogleMaps/Maps (8.4.0):
     - GoogleMaps/Base
   - GooglePlaces (8.5.0)
+  - SwiftEntryKit (2.0.0)
 
 DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
+  - SwiftEntryKit
 
 SPEC REPOS:
   trunk:
     - GoogleMaps
     - GooglePlaces
+    - SwiftEntryKit
 
 SPEC CHECKSUMS:
   GoogleMaps: 8939898920281c649150e0af74aa291c60f2e77d
   GooglePlaces: 426efb69051e7b460e16300ba63598687d10fa1a
+  SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
 
-PODFILE CHECKSUM: ce529bac0eaa821b2b941bfbc95fe6145e0ea340
+PODFILE CHECKSUM: 7fe3649487561da434e4fb27c8e5eb423de167bb
 
 COCOAPODS: 1.16.2
