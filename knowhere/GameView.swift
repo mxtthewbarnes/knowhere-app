@@ -14,6 +14,7 @@ struct GameView: View {
     @Binding var gameState: GameState
     @Binding var actualCoordinate: CLLocationCoordinate2D
     @Binding var totalScore: Int
+    @Binding var mode: GameMode
     
     @State private var timeRemaining = 30
     @State private var timer: Timer?
@@ -75,7 +76,7 @@ struct GameView: View {
             button: button,
             action: {
                 SwiftEntryKit.dismiss()
-                self.actualCoordinate = generateRandomCoordinate()
+                self.actualCoordinate = generateRandomCoordinate(for: mode)
                 self.gameState = .playing
             }
         )

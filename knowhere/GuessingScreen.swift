@@ -6,7 +6,7 @@
 //
 import SwiftUI
 import CoreLocation
-
+import SwiftEntryKit
 
 // MapGuessingScreen
 struct MapGuessingScreen: View {
@@ -18,6 +18,7 @@ struct MapGuessingScreen: View {
     @Binding var gameState: GameState
     @State private var showSubmit = false
     @State private var roundScore: Int = 0
+    @Binding var mode: GameMode
     var showResultsPopup: ((Double, Int, Int) -> Void)?
     var body: some View {
         ZStack {
@@ -43,6 +44,12 @@ struct MapGuessingScreen: View {
                         let score = maxScore * exp(-meters / decayFactor)
                         let roundScore = Int(score)
                         totalScore += roundScore
+                        
+                        
+                        //score tracking
+                        if roundScore > loadHighScore(for: mode) {
+                            saveHighScore(roundScore, for: mode)
+                        }
                     
                         
                         
