@@ -179,5 +179,13 @@ let collegeCoords: [CLLocationCoordinate2D] = [
     CLLocationCoordinate2D(latitude: 33.5843, longitude: -101.8747), // Texas Tech
     CLLocationCoordinate2D(latitude: 28.6024, longitude: -81.2001), // UCF
     CLLocationCoordinate2D(latitude: 40.7658, longitude: -111.8450), // Utah
-    CLLocationCoordinate2D(latitude: 39.6503, longitude: -79.9559) // West Virginia
+    CLLocationCoordinate2D(latitude: 39.6503, longitude: -79.9559), // West Virginia
+    
+    
+    // Washington State Cougars / Oregon State Beavers
+    CLLocationCoordinate2D(latitude: 46.73088717091384, longitude: -117.16485682040057),
+    CLLocationCoordinate2D(latitude: 46.73130332692996, longitude: -117.16592134930545),
+    
+    CLLocationCoordinate2D(latitude: 44.56017911533268, longitude: -123.2796107038167)
+    
 ]
