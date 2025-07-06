@@ -63,7 +63,7 @@ struct ContentView: View {
                         }
                     }
             case .mainMenu:
-                mainMenu(gameState: $gameState,
+                MainMenu(gameState: $gameState,
                          mode: $mode)
 
             case .playing:

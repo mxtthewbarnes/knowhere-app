@@ -25,12 +25,12 @@ struct loadingScreen: View {
 }
 
 // Button styling for menu
-struct menuButton: View {
+struct MenuButton: View {
     let imageName: String
-    let action: () -> Void
+    let singleTapAction: () -> Void
+    let doubleTapAction: () -> Void
 
     var body: some View {
-        Button(action: action) {
             Image(imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -38,33 +38,56 @@ struct menuButton: View {
                 .padding()
                 .background(.darkgreyslate)
                 .cornerRadius(30)
+                .onTapGesture (count: 2){
+                    doubleTapAction()
+                }
+                .onTapGesture (count: 1){
+                    singleTapAction()
+                    
+                }
             
             
         }
     }
-}
+
 
 
 
 // Main menu implementation
-struct mainMenu: View {
+struct MainMenu: View {
     @Binding var gameState: GameState
     @Binding var mode: GameMode
+
     var body: some View {
         VStack(spacing: 30) {
             Text("Knowhere")
                 .font(.custom("pacifico", size: 50))
                 .foregroundColor(.darkgreyslate)
                 .padding(.top, 60)
+
             HStack(spacing: 10) {
-                menuButton(imageName: "usa-proper") {
-                    gameState = .playing
-                    mode = .usa
-                }
-                menuButton(imageName: "college") {
-                    gameState = .playing
-                    mode = .college
-                }
+                MenuButton(
+                    imageName: "usa-proper",
+                    singleTapAction: {
+                        modeFloat(mode: .usa)
+                        
+                    },
+                    doubleTapAction: {
+                        mode = .usa
+                        gameState = .playing
+                    }
+                )
+
+                MenuButton(
+                    imageName: "college",
+                    singleTapAction: {
+                        modeFloat(mode: .college)
+                    },
+                    doubleTapAction: {
+                        mode = .college
+                        gameState = .playing
+                    }
+                )
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -98,21 +121,32 @@ func modeFloat(mode: GameMode) {
         text: {
             switch mode {
             case .usa:
-                return String(format: "Highest score: %d", loadHighScore(for: .usa))
+                return "Highest score: \(loadHighScore(for: .usa))\nDouble tap to play"
             case .college:
-                return String(format: "Highest score: %d", loadHighScore(for: .college))
+                return "Highest score: \(loadHighScore(for: .college))\nDouble tap to play"
             }
         }(),
         style: .init(
             font: .systemFont(ofSize: 15),
             color: EKColor(hotOrange),
             alignment: .center
-            )
         )
+    )
     
+    /*let float = EKPopUpMessage(
+        title: title,
+        description: desc
+       
+        
+        )
+    )*/
     
+    var attributes = EKAttributes.bottomFloat
+    attributes.entryBackground = .color(color: EKColor(hotOrange))
+    attributes.roundCorners = .all(radius: 30)
     
-    
+    SwiftEntryKit.display(entry: EKNotificationMessageView(with: float), using: attributes)
+
     
     
     
