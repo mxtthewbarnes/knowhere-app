@@ -17,7 +17,7 @@ struct GuessMapView: UIViewRepresentable {
     }
 
     func makeUIView(context: Context) -> GMSMapView {
-        let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 2)
+        let camera = GMSCameraPosition.camera(withLatitude: 39.8283, longitude: -98.5795, zoom: 3)
         let mapView = GMSMapView(frame: .zero, camera: camera)
         mapView.delegate = context.coordinator
         return mapView
@@ -28,17 +28,19 @@ struct GuessMapView: UIViewRepresentable {
     func updateUIView(_ mapView: GMSMapView, context: Context) {
         mapView.clear()
         
+        let hotOrange = UIColor(red: 1.0, green: 0.4, blue: 0.0, alpha: 1.0)
+
         
         //guess marker
         if let coordinate = selectedCoordinate {
             let guessMark = GMSMarker(position: coordinate)
-            guessMark.icon = GMSMarker.markerImage(with: .red)
+            guessMark.icon = GMSMarker.markerImage(with: .darkgreyslate)
             guessMark.map = mapView
             
             //actual marker
             if let actual = actualCoordinate{
                 let actualMark = GMSMarker(position: actual)
-                actualMark.icon = GMSMarker.markerImage(with: .orange)
+                actualMark.icon = GMSMarker.markerImage(with: .red)
                 actualMark.map = mapView
                 
                 
@@ -47,7 +49,7 @@ struct GuessMapView: UIViewRepresentable {
                 path.add(actual)
                 path.add(coordinate)
                 let line = GMSPolyline(path: path)
-                line.strokeColor = .orange
+                line.strokeColor = hotOrange
                 line.strokeWidth = 2.0
                 line.map = mapView
         }

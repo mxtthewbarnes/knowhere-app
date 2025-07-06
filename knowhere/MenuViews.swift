@@ -170,7 +170,7 @@ func modeFloat(mode: GameMode) {
     var attributes = EKAttributes.bottomFloat
     attributes.entryBackground = .color(color: EKColor(.darkgreyslate))
     attributes.roundCorners = .all(radius: 30)
-    attributes.displayDuration = .
+    attributes.displayDuration = 3.0
     SwiftEntryKit.display(entry: EKPopUpMessageView(with: float), using: attributes)
     
     

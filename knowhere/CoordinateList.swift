@@ -31,12 +31,10 @@ let usCoordinates: [CLLocationCoordinate2D] = [
     CLLocationCoordinate2D(latitude: 35.1495, longitude: -90.0490), // Memphis
     CLLocationCoordinate2D(latitude: 33.7490, longitude: -84.3880), // Atlanta
     CLLocationCoordinate2D(latitude: 43.0389, longitude: -87.9065), // Milwaukee
-    CLLocationCoordinate2D(latitude: 39.9612, longitude: -82.9988), // Columbus
     CLLocationCoordinate2D(latitude: 27.9506, longitude: -82.4572), // Tampa
     CLLocationCoordinate2D(latitude: 36.7378, longitude: -119.7871), // Fresno
     CLLocationCoordinate2D(latitude: 42.3314, longitude: -83.0458), // Detroit
     CLLocationCoordinate2D(latitude: 35.7796, longitude: -78.6382), // Raleigh
-    CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194), // San Francisco
     CLLocationCoordinate2D(latitude: 40.4406, longitude: -79.9959), // Pittsburgh
     CLLocationCoordinate2D(latitude: 37.3382, longitude: -121.8863), // San Jose
     CLLocationCoordinate2D(latitude: 39.7392, longitude: -104.9903),
@@ -47,9 +45,7 @@ let usCoordinates: [CLLocationCoordinate2D] = [
     CLLocationCoordinate2D(latitude: 36.1628, longitude: -86.7816),
     CLLocationCoordinate2D(latitude: 38.2527, longitude: -85.7585), // Louisville
     CLLocationCoordinate2D(latitude: 35.0844, longitude: -106.6504), // Albuquerque
-    CLLocationCoordinate2D(latitude: 35.9940, longitude: -78.8986), // Durham
     CLLocationCoordinate2D(latitude: 33.5186, longitude: -86.8104),
-    CLLocationCoordinate2D(latitude: 32.7767, longitude: -96.7970), // Dallas
     CLLocationCoordinate2D(latitude: 29.9511, longitude: -90.0715), // New Orleans
     CLLocationCoordinate2D(latitude: 35.2220, longitude: -97.4395), // Norman
     CLLocationCoordinate2D(latitude: 44.0521, longitude: -123.0868), // Eugene
@@ -58,7 +54,6 @@ let usCoordinates: [CLLocationCoordinate2D] = [
     CLLocationCoordinate2D(latitude: 46.8772, longitude: -96.7898), // Fargo
     CLLocationCoordinate2D(latitude: 39.7392, longitude: -104.9903),
     CLLocationCoordinate2D(latitude: 36.1627, longitude: -86.7816),
-    CLLocationCoordinate2D(latitude: 41.2565, longitude: -95.9345), // Omaha
     CLLocationCoordinate2D(latitude: 34.7465, longitude: -92.2896), // Little Rock
     CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
     CLLocationCoordinate2D(latitude: 43.6150, longitude: -116.2023), // Boise
@@ -67,8 +62,6 @@ let usCoordinates: [CLLocationCoordinate2D] = [
     CLLocationCoordinate2D(latitude: 42.6526, longitude: -73.7562), // Albany
     CLLocationCoordinate2D(latitude: 37.9643, longitude: -91.8318), // Missouri
     CLLocationCoordinate2D(latitude: 33.0198, longitude: -96.6989), // Plano
-    CLLocationCoordinate2D(latitude: 42.2808, longitude: -83.7430), // Ann Arbor
-    CLLocationCoordinate2D(latitude: 38.9517, longitude: -92.3341), // Columbia, MO
     CLLocationCoordinate2D(latitude: 36.1539, longitude: -95.9928), // Tulsa
     CLLocationCoordinate2D(latitude: 40.5853, longitude: -105.0844), // Fort Collins
     CLLocationCoordinate2D(latitude: 34.1083, longitude: -117.2898), // San Bernardino
@@ -80,24 +73,47 @@ let usCoordinates: [CLLocationCoordinate2D] = [
     CLLocationCoordinate2D(latitude: 39.1911, longitude: -106.8175), // Aspen
     CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
     CLLocationCoordinate2D(latitude: 36.7477, longitude: -119.7724),
-    CLLocationCoordinate2D(latitude: 32.7555, longitude: -97.3308), // Fort Worth
-    CLLocationCoordinate2D(latitude: 34.4208, longitude: -119.6982), // Santa Barbara
     CLLocationCoordinate2D(latitude: 33.6846, longitude: -117.8265), // Irvine
     CLLocationCoordinate2D(latitude: 37.4419, longitude: -122.1430), // Palo Alto
     CLLocationCoordinate2D(latitude: 33.8366, longitude: -117.9143), // Anaheim
-    CLLocationCoordinate2D(latitude: 40.01499, longitude: -105.2705), // Boulder
     CLLocationCoordinate2D(latitude: 37.8715, longitude: -122.2730), // Berkeley
     CLLocationCoordinate2D(latitude: 40.9254, longitude: -74.2765), // Clifton, NJ
     CLLocationCoordinate2D(latitude: 42.3314, longitude: -83.0458),
     CLLocationCoordinate2D(latitude: 39.2904, longitude: -76.6122), // Baltimore
     CLLocationCoordinate2D(latitude: 34.0007, longitude: -81.0348), // Columbia, SC
-    CLLocationCoordinate2D(latitude: 42.9634, longitude: -85.6681), // Grand Rapids
-    CLLocationCoordinate2D(latitude: 41.6005, longitude: -93.6091), // Des Moines
-    CLLocationCoordinate2D(latitude: 38.5791, longitude: -121.4910), // Sacramento
     CLLocationCoordinate2D(latitude: 43.0731, longitude: -89.4012), // Madison
     CLLocationCoordinate2D(latitude: 45.5122, longitude: -122.6587),
     CLLocationCoordinate2D(latitude: 40.4406, longitude: -79.9959),
-    CLLocationCoordinate2D(latitude: 37.0902, longitude: -95.7129) // Geographic center
+    CLLocationCoordinate2D(latitude: 37.0902, longitude: -95.7129), // Geographic center
+    
+    
+    CLLocationCoordinate2D(latitude: 47.67393331347467, longitude: -116.79362910425603), //CDA
+    CLLocationCoordinate2D(latitude: 47.34457244951391, longitude: -122.33049783665533), //federal way
+    CLLocationCoordinate2D(latitude: 40.77682860013312, longitude: -74.01215864931463), //new york
+    CLLocationCoordinate2D(latitude: 40.71953348648525, longitude: -74.00864300985727),
+    //new york
+    CLLocationCoordinate2D(latitude: 40.723087945311136, longitude: -73.99871839446946),
+    //new york
+    CLLocationCoordinate2D(latitude: 41.88576790010122, longitude: -87.63527122021871), //chicago
+    CLLocationCoordinate2D(latitude: 47.58942915045632, longitude: -122.33421339100062), //seattle
+    CLLocationCoordinate2D(latitude: 33.85530119539349, longitude: -116.55784049146372),
+    //palm springs
+    CLLocationCoordinate2D(latitude: 33.921216476598104, longitude: -116.71025793465377),
+    //nevada
+    CLLocationCoordinate2D(latitude: 32.53996721415149, longitude: -117.06303472075052),
+    //san diego border
+    CLLocationCoordinate2D(latitude: 32.72774560426337, longitude: -117.17939466465327),
+    //san diego
+    CLLocationCoordinate2D(latitude: 34.09607559105018, longitude: -118.4351146269097),
+    //beverly hills
+    CLLocationCoordinate2D(latitude: 28.258362124432036, longitude: -81.2820554456191),
+    //st cloud
+    CLLocationCoordinate2D(latitude: 28.085602770846993, longitude: -80.58791714048799),
+    //melbourne beach
+    CLLocationCoordinate2D(latitude: 25.774074398517143, longitude: -80.1509659824355)
+    //miami
+    
+    
 ]
 
 
