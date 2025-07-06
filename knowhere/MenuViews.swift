@@ -111,11 +111,31 @@ func modeFloat(mode: GameMode) {
             }
         }(),
         style: EKProperty.LabelStyle(
-            font: UIFont.boldSystemFont(ofSize: 24),
+            font: UIFont(name: "pacifico", size: 15) ?? .systemFont(ofSize: 25),
             color: EKColor(.white),
-            alignment: .center
+            alignment: .left
         )
     )
+
+    
+    let buttonLabel = EKProperty.LabelContent(
+        text: "Play Now",
+        style: EKProperty.LabelStyle(
+            font: UIFont.systemFont(ofSize: 18),
+            color: EKColor(.white)
+        )
+    )
+    
+    let button = EKProperty.ButtonContent(
+        label: buttonLabel,
+        backgroundColor: EKColor(hotOrange),
+        highlightedBackgroundColor:  (EKColor(hotOrange).with(alpha: 0.9)),
+        action: {
+            SwiftEntryKit.dismiss()
+        }
+        )
+    
+    
     
     let desc = EKProperty.LabelContent(
         text: {
@@ -128,26 +148,30 @@ func modeFloat(mode: GameMode) {
         }(),
         style: .init(
             font: .systemFont(ofSize: 15),
-            color: EKColor(hotOrange),
+            color: EKColor(.white),
             alignment: .center
         )
     )
+        
     
-    /*let float = EKPopUpMessage(
+    let float = EKPopUpMessage(
         title: title,
-        description: desc
+        description: desc,
+        button: button,
+        action: {
+            SwiftEntryKit.dismiss()
+            
+        }
        
         
         )
-    )*/
+    
     
     var attributes = EKAttributes.bottomFloat
-    attributes.entryBackground = .color(color: EKColor(hotOrange))
+    attributes.entryBackground = .color(color: EKColor(.darkgreyslate))
     attributes.roundCorners = .all(radius: 30)
-    
-    SwiftEntryKit.display(entry: EKNotificationMessageView(with: float), using: attributes)
-
-    
+    attributes.displayDuration = .
+    SwiftEntryKit.display(entry: EKPopUpMessageView(with: float), using: attributes)
     
     
 }
