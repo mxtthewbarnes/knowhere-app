@@ -186,25 +186,30 @@ struct GameView: View {
         let hotOrange = UIColor(red: 1.0, green: 0.4, blue: 0.0, alpha: 1.0)
         
         let title = EKProperty.LabelContent(
-            text: String(format: "%.2fmi away", miles),
+            text: String(format: "Results", miles),
             style: .init(
                 font: UIFont(name: "pacifico", size: 35) ?? .systemFont(ofSize: 25),
-                color: EKColor(darkSlateGrey))
+                color: EKColor(darkSlateGrey),
+                alignment: .center
+                )
             )
         
 
         let description = EKProperty.LabelContent(
             
-            text: String(format: "%dpts ", roundScore),
-            style: .init(font: .systemFont(ofSize: 20),
-                         color: EKColor(darkSlateGrey))
+            text: String(format: "You were %.2fmi away!\nScore this round: %dpts", miles, roundScore),
+            style: .init(
+                font: .systemFont(ofSize: 20),
+                color: EKColor(darkSlateGrey),
+                alignment: .center
+            )
             
         )
 
         let buttonLabel = EKProperty.LabelContent(
             text: "Next Round",
             style: .init(
-                font: UIFont(name: "pacifico", size: 25) ?? .systemFont(ofSize: 25),
+                font: .systemFont(ofSize: 18),
                 color: EKColor(.white)
             )
         )
@@ -239,7 +244,7 @@ struct GameView: View {
         attributes.displayDuration = .infinity
         attributes.entryInteraction = .absorbTouches
         attributes.screenInteraction = .forward
-        attributes.roundCorners = .all(radius: 12)
+        attributes.roundCorners = .all(radius: 30)
         attributes.lifecycleEvents.didDisappear = {
             self.gameState = .playing
         }
@@ -292,7 +297,7 @@ struct GameView: View {
                     // Toolbar background
                     Rectangle()
                         .fill(.ultraThinMaterial)
-                        .frame(height: 90) // Adjust as needed
+                        .frame(height: 90) 
                         .ignoresSafeArea(edges: .bottom)
                         .cornerRadius(30)
 
@@ -314,25 +319,6 @@ struct GameView: View {
                             .cornerRadius(10)
                             
                         }
-
-                        // Timer
-                       /* HStack(spacing: 5) {
-                            Image(systemName: "clock.fill")
-                                .foregroundColor(.white)
-                            Text("\(timeRemaining)s")
-                                .foregroundColor(.white)
-                                .font(.headline)
-                        }*/
-
-                        
-                        
-                        // Score in bottom band - removing for now to test and see what Guess looks like on its own
-                        /*HStack(spacing: 5) {
-                            Text("Score: \(totalScore)")
-                                .foregroundColor(.white)
-                                .font(.headline)
-                                
-                        }*/
 
                         Spacer()
                     }
@@ -401,10 +387,16 @@ struct MapGuessingScreen: View {
                         showResult = true
                     }
                     
+                    //score logic
                     if let miles = distanceInMiles {
-                        let maxScore = 3500
-                        roundScore = max(0, Int(Double(maxScore) - miles * 6))
+                        let meters = miles * 1609.34
+                        let maxScore = 5000.0
+                        let decayFactor = 2_000_000.0 // smaller = faster decay
+
+                        let score = maxScore * exp(-meters / decayFactor)
+                        let roundScore = Int(score)
                         totalScore += roundScore
+                    
                         
                         
                         //call swift entrykit popup
