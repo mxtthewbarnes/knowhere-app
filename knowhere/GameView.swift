@@ -180,7 +180,7 @@ struct GameView: View {
     {
         //initializing colors
         let darkSlateGrey = UIColor(red: 47/255, green: 79/255, blue: 79/255, alpha: 1.0)
-        let hotOrange = UIColor(red: 1.0, green: 0.4, blue: 0.0, alpha: 1.0)
+        //let hotOrange = UIColor(red: 1.0, green: 0.4, blue: 0.0, alpha: 1.0)
         
         let title = EKProperty.LabelContent(
             text: String(format: "Sorry!"),
