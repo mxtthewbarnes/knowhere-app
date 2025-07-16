@@ -19,6 +19,9 @@ enum GameState {
 enum GameMode {
     case usa
     case college
+    case europe
+    case world
+    
 }
 
 //score tracking logic
@@ -32,13 +35,30 @@ func loadHighScore(for mode: GameMode) -> Int {
 
 
 
-func generateRandomCoordinate(for mode: GameMode) -> CLLocationCoordinate2D {
+func generateRandomCoordinate(for mode: GameMode) -> CLLocationCoordinate2D? {
     switch mode
     {
     case .usa:
-        return usCoordinates.randomElement()!
+        return nil
     case .college:
         return collegeCoords.randomElement()!
+    case .europe:
+        return nil
+    case .world:
+        return nil
+    }
+}
+
+func boundingBox(for mode: GameMode) -> bounds? {
+    switch mode {
+    case .usa:
+        return usaBounds
+    case .college:
+        return nil
+    case .europe:
+        return europeBounds
+    case .world:
+        return worldBounds
     }
 }
 
@@ -46,7 +66,7 @@ func generateRandomCoordinate(for mode: GameMode) -> CLLocationCoordinate2D {
 // Main app content view
 struct ContentView: View {
     @State private var gameState: GameState = .loading
-    @State private var actualCoordinate = generateRandomCoordinate(for: .usa)
+    @State private var actualCoordinate: CLLocationCoordinate2D? = nil
     @State private var totalScore: Int = 0
     @State private var round: Int = 1
     @State private var mode: GameMode = .usa
@@ -63,8 +83,10 @@ struct ContentView: View {
                         }
                     }
             case .mainMenu:
-                MainMenu(gameState: $gameState,
-                         mode: $mode)
+                MainMenu(
+                    gameState: $gameState,
+                    mode: $mode,
+                    actualCoordinate: $actualCoordinate)
 
             case .playing:
                 GameView(gameState: $gameState, actualCoordinate: $actualCoordinate, totalScore: $totalScore, mode: $mode)

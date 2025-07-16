@@ -163,9 +163,7 @@ let collegeCoords: [CLLocationCoordinate2D] = [
     // ACC
     CLLocationCoordinate2D(latitude: 42.3355, longitude: -71.1685), // Boston College
     CLLocationCoordinate2D(latitude: 37.8719, longitude: -122.2585), // Cal
-    CLLocationCoordinate2D(latitude: 34.6784, longitude: -82.8409), // Clemson
     CLLocationCoordinate2D(latitude: 36.0014, longitude: -78.9382), // Duke
-    CLLocationCoordinate2D(latitude: 30.4383, longitude: -84.2990), // Florida State
     CLLocationCoordinate2D(latitude: 33.7756, longitude: -84.3963), // Georgia Tech
     CLLocationCoordinate2D(latitude: 38.2141, longitude: -85.7585), // Louisville
     CLLocationCoordinate2D(latitude: 25.7190, longitude: -80.2781), // Miami

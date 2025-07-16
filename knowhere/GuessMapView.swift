@@ -11,18 +11,47 @@ import GoogleMaps
 struct GuessMapView: UIViewRepresentable {
     @Binding var selectedCoordinate: CLLocationCoordinate2D?
     var actualCoordinate: CLLocationCoordinate2D?
+    var mode: GameMode
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
 
     func makeUIView(context: Context) -> GMSMapView {
-        let camera = GMSCameraPosition.camera(withLatitude: 39.8283, longitude: -98.5795, zoom: 3)
-        let mapView = GMSMapView(frame: .zero, camera: camera)
-        mapView.delegate = context.coordinator
-        return mapView
-    }
+            var centerLat: Double = 0
+            var centerLong: Double = 0
+            var zoom: Float = 2
 
+            // Adjust per mode
+            switch mode {
+            case .usa:
+                centerLat = 39.8283
+                centerLong = -98.5795
+                zoom = 3
+            case .europe:
+                centerLat = 54.5260
+                centerLong = 15.2551
+                zoom = 4
+            case .college:
+                centerLat = 39.8283
+                centerLong = -98.5795
+                zoom = 4
+            case .world:
+                centerLat = 0
+                centerLong = 0
+                zoom = 2
+            }
+
+            let camera = GMSCameraPosition.camera(
+                withLatitude: centerLat,
+                longitude: centerLong,
+                zoom: zoom
+            )
+
+            let mapView = GMSMapView(frame: .zero, camera: camera)
+            mapView.delegate = context.coordinator
+            return mapView
+        }
     
     
     func updateUIView(_ mapView: GMSMapView, context: Context) {

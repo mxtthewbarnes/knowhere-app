@@ -20,8 +20,16 @@ struct bounds{
 
 //specific bounds for USA
 let usaBounds = bounds(
-    maxLat: 49, maxLong: -66, minLat: 24, minLong: -125
+    maxLat: 49.384358,
+    maxLong: -66.93457,
+    minLat: 24.396308,
+    minLong: -125.0
 )
 
 
+//bounds for europe
+let europeBounds = bounds(maxLat: 71.0, maxLong: 40.0, minLat: 35.0, minLong: -10.0)
+
+//world bounds
+let worldBounds = bounds(maxLat: 85.0, maxLong: 180.0, minLat: -85.0, minLong: -180.0)
 

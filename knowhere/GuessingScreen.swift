@@ -11,7 +11,7 @@ import SwiftEntryKit
 // MapGuessingScreen
 struct MapGuessingScreen: View {
     @State private var guessLocation: CLLocationCoordinate2D?
-    let actualCoordinate: CLLocationCoordinate2D
+    let actualCoordinate: CLLocationCoordinate2D?
     @State private var showResult = false
     @State private var distanceInMiles: Double?
     @Binding var totalScore: Int
@@ -22,13 +22,13 @@ struct MapGuessingScreen: View {
     var showResultsPopup: ((Double, Int, Int) -> Void)?
     var body: some View {
         ZStack {
-            GuessMapView(selectedCoordinate: $guessLocation, actualCoordinate: showResult ? actualCoordinate : nil)
+            GuessMapView(selectedCoordinate: $guessLocation, actualCoordinate: showResult ? actualCoordinate : nil, mode: mode)
                 .edgesIgnoringSafeArea(.all)
             
             if let _ = guessLocation, !showResult {
                 Button(action: {
-                    if let guess = guessLocation {
-                        let actual = CLLocation(latitude: actualCoordinate.latitude, longitude: actualCoordinate.longitude)
+                    if let guess = guessLocation, let actualCoord = actualCoordinate {
+                        let actual = CLLocation(latitude: actualCoord.latitude, longitude: actualCoord.longitude)
                         let guessCL = CLLocation(latitude: guess.latitude, longitude: guess.longitude)
                         let distance = actual.distance(from: guessCL)
                         distanceInMiles = distance * 0.000621371

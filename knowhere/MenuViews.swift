@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import SwiftEntryKit
+import CoreLocation
 
 // Initial loading screen
 struct loadingScreen: View {
@@ -17,7 +18,7 @@ struct loadingScreen: View {
                 Text("Knowhere")
                     .font(.custom("pacifico", size: 36))
                     .foregroundColor(.white)
-                Image("icon")
+                
             }
             .padding()
         }
@@ -43,6 +44,7 @@ struct MenuButton: View {
                 }
                 .onTapGesture (count: 1){
                     singleTapAction()
+                        
                     
                 }
             
@@ -57,43 +59,73 @@ struct MenuButton: View {
 struct MainMenu: View {
     @Binding var gameState: GameState
     @Binding var mode: GameMode
-
+    @Binding var actualCoordinate: CLLocationCoordinate2D?
+    
     var body: some View {
-        VStack(spacing: 30) {
+        VStack(spacing: 10) {
             Text("Knowhere")
                 .font(.custom("pacifico", size: 50))
                 .foregroundColor(.darkgreyslate)
                 .padding(.top, 60)
-
+            
             HStack(spacing: 10) {
-                MenuButton(
-                    imageName: "usa-proper",
-                    singleTapAction: {
-                        modeFloat(mode: .usa)
+                MenuButton(imageName: "world",
+                           singleTapAction: {
+                    modeFloat(mode: .usa)
                         
-                    },
-                    doubleTapAction: {
-                        mode = .usa
-                        gameState = .playing
-                    }
+                },
+                           doubleTapAction: {
+                    mode = .world
+                    gameState = .playing
+                }
                 )
-
-                MenuButton(
-                    imageName: "college",
-                    singleTapAction: {
-                        modeFloat(mode: .college)
-                    },
-                    doubleTapAction: {
-                        mode = .college
-                        gameState = .playing
-                    }
-                )
-            }
+            
+            
+            MenuButton(
+                imageName: "usa-proper",
+                singleTapAction: {
+                    modeFloat(mode: .usa)
+                    
+                },
+                doubleTapAction: {
+                    mode = .usa
+                    gameState = .playing
+                }
+            )
+            
+            
+            
+            
         }
+        HStack(spacing: 10) {
+            MenuButton(imageName: "europe",
+                       singleTapAction: {
+                modeFloat(mode: .europe)
+            },
+                       doubleTapAction: {
+                mode = .europe
+                gameState = .playing
+            })
+            MenuButton(
+                imageName: "college",
+                singleTapAction: {
+                    modeFloat(mode: .college)
+                },
+                doubleTapAction: {
+                    mode = .college
+                    self.actualCoordinate = generateRandomCoordinate(for: .college)
+                    gameState = .playing
+                }
+            )
+        }
+        
+    }
+
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Color.white.ignoresSafeArea())
     }
 }
+
 
 
 //swift entry kit float message w/ highest score/round per gamemode
@@ -108,6 +140,10 @@ func modeFloat(mode: GameMode) {
                 return "United States"
             case .college:
                 return "College Campuses"
+            case .europe:
+                return "Europe"
+            case .world:
+                return "World"
             }
         }(),
         style: EKProperty.LabelStyle(
@@ -144,6 +180,10 @@ func modeFloat(mode: GameMode) {
                 return "Highest score: \(loadHighScore(for: .usa))\nDouble tap to play"
             case .college:
                 return "Highest score: \(loadHighScore(for: .college))\nDouble tap to play"
+            case .europe:
+                return "Highest score: \(loadHighScore(for: .europe))"
+            case .world:
+                return "Highest score: \(loadHighScore(for: .world))"
             }
         }(),
         style: .init(
