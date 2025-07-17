@@ -16,7 +16,7 @@ struct locationList: Codable{
 }
 
 struct StreetViewLocation: Codable{
-    let panoID: String
+    let panoId: String
     let lat: Double
     let lng: Double
 }

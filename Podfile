@@ -1,8 +1,8 @@
-platform :ios, '14.0'
-
-use_frameworks!
+platform :ios, '15.0'
 
 target 'knowhere' do
+  use_frameworks!
+
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'SwiftEntryKit'

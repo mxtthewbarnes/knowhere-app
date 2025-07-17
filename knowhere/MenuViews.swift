@@ -60,6 +60,7 @@ struct MainMenu: View {
     @Binding var gameState: GameState
     @Binding var mode: GameMode
     @Binding var actualCoordinate: CLLocationCoordinate2D?
+    let allLocations: [GameMode: [StreetViewLocation]]
     
     var body: some View {
         VStack(spacing: 10) {
@@ -113,7 +114,7 @@ struct MainMenu: View {
                 },
                 doubleTapAction: {
                     mode = .college
-                    self.actualCoordinate = generateRandomCoordinate(for: .college)
+                    self.actualCoordinate = generateRandomCoordinate(for: .college, locations: allLocations)
                     gameState = .playing
                 }
             )

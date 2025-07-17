@@ -5,7 +5,7 @@
 //  Created by Matthew Barnes on 7/15/25.
 //
 
-import SwiftUI
+/*import SwiftUI
 import CoreLocation
 
 
@@ -33,3 +33,4 @@ let europeBounds = bounds(maxLat: 71.0, maxLong: 40.0, minLat: 35.0, minLong: -1
 //world bounds
 let worldBounds = bounds(maxLat: 85.0, maxLong: 180.0, minLat: -85.0, minLong: -180.0)
 
+*/

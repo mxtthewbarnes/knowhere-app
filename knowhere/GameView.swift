@@ -21,6 +21,8 @@ struct GameView: View {
     @State private var score = 0
     
     
+    let allLocations: [GameMode: [StreetViewLocation]]
+    
     
     //nResults message built using Swift ENtry Kit
     func resultsPopup(miles: Double, roundScore: Int, totalScore: Int) {
@@ -58,7 +60,6 @@ struct GameView: View {
         )
         
         
-        //comment to push and test if sensitive data is detected by github - disregard comment
         let button = EKProperty.ButtonContent(
             label: buttonLabel,
             backgroundColor: (EKColor(hotOrange)),
@@ -76,7 +77,7 @@ struct GameView: View {
             button: button,
             action: {
                 SwiftEntryKit.dismiss()
-                self.actualCoordinate = generateRandomCoordinate(for: mode)
+                self.actualCoordinate = generateRandomCoordinate(for: mode, locations: allLocations)
                 self.gameState = .playing
             }
         )
@@ -179,14 +180,8 @@ struct GameView: View {
                 
                 .onAppear {
                     if actualCoordinate == nil {
-                        if let box = boundingBox(for: mode) {
-                            fetchStreetView(in: box) { coord in
-                                DispatchQueue.main.async {
-                                    self.actualCoordinate = coord
-                                }
-                            }
+                        actualCoordinate = generateRandomCoordinate(for: mode, locations: allLocations)
                         }
-                    }
                     startTimer()
                 }
                 .onDisappear {

@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D14DB3E15A2BE992EB23716 /* Pods_knowhere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 485A988653D54BB92553705A /* Pods_knowhere.framework */; };
+		9AB230B44E60451AF1CD98C6 /* Pods_knowhere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3730EC8AA8AE65078FAEF13A /* Pods_knowhere.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05A51FC8338ED394C4F37B1E /* Pods-knowhere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-knowhere.debug.xcconfig"; path = "Target Support Files/Pods-knowhere/Pods-knowhere.debug.xcconfig"; sourceTree = "<group>"; };
 		09FC99D22DD59F47003717AD /* knowhere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = knowhere.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		118915D970CBFD0516E66179 /* Pods-knowhere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-knowhere.release.xcconfig"; path = "Target Support Files/Pods-knowhere/Pods-knowhere.release.xcconfig"; sourceTree = "<group>"; };
-		485A988653D54BB92553705A /* Pods_knowhere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_knowhere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CE6E0DC00B3D82554E1B752 /* Pods-knowhere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-knowhere.release.xcconfig"; path = "Target Support Files/Pods-knowhere/Pods-knowhere.release.xcconfig"; sourceTree = "<group>"; };
+		3730EC8AA8AE65078FAEF13A /* Pods_knowhere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_knowhere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A96B936679C9FFF9B3FE1177 /* Pods-knowhere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-knowhere.debug.xcconfig"; path = "Target Support Files/Pods-knowhere/Pods-knowhere.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -43,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D14DB3E15A2BE992EB23716 /* Pods_knowhere.framework in Frameworks */,
+				9AB230B44E60451AF1CD98C6 /* Pods_knowhere.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +56,7 @@
 				09FC99D42DD59F47003717AD /* knowhere */,
 				09FC99D32DD59F47003717AD /* Products */,
 				267C74FE84ABB5F8A46F5316 /* Pods */,
-				2087E22D06E771B065C93A77 /* Frameworks */,
+				9EFB2F6AACAC066E06DBECFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,21 +68,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2087E22D06E771B065C93A77 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				485A988653D54BB92553705A /* Pods_knowhere.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		267C74FE84ABB5F8A46F5316 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				05A51FC8338ED394C4F37B1E /* Pods-knowhere.debug.xcconfig */,
-				118915D970CBFD0516E66179 /* Pods-knowhere.release.xcconfig */,
+				A96B936679C9FFF9B3FE1177 /* Pods-knowhere.debug.xcconfig */,
+				2CE6E0DC00B3D82554E1B752 /* Pods-knowhere.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9EFB2F6AACAC066E06DBECFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3730EC8AA8AE65078FAEF13A /* Pods_knowhere.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,12 +92,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 09FC99E02DD59F48003717AD /* Build configuration list for PBXNativeTarget "knowhere" */;
 			buildPhases = (
-				20343F327C287E6B9A0A9048 /* [CP] Check Pods Manifest.lock */,
+				208623B84376E41E4FCF3840 /* [CP] Check Pods Manifest.lock */,
 				09FC99CE2DD59F47003717AD /* Sources */,
 				09FC99CF2DD59F47003717AD /* Frameworks */,
 				09FC99D02DD59F47003717AD /* Resources */,
-				71D800F0DE3A00C8C4C4C0A4 /* [CP] Copy Pods Resources */,
-				C693122CCEC83EF8EAEAFB44 /* [CP] Embed Pods Frameworks */,
+				72DEA6924DE866526FDB10D2 /* [CP] Embed Pods Frameworks */,
+				7D0C3574E0E30D63DAB6A8E2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,7 +136,6 @@
 			mainGroup = 09FC99C92DD59F47003717AD;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				09C821622E0CAD9100E995C4 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */,
 				097018D32E0FC912003BC579 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -160,7 +159,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		20343F327C287E6B9A0A9048 /* [CP] Check Pods Manifest.lock */ = {
+		208623B84376E41E4FCF3840 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -182,24 +181,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		71D800F0DE3A00C8C4C4C0A4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-knowhere/Pods-knowhere-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-knowhere/Pods-knowhere-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-knowhere/Pods-knowhere-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C693122CCEC83EF8EAEAFB44 /* [CP] Embed Pods Frameworks */ = {
+		72DEA6924DE866526FDB10D2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -214,6 +196,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-knowhere/Pods-knowhere-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D0C3574E0E30D63DAB6A8E2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-knowhere/Pods-knowhere-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-knowhere/Pods-knowhere-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-knowhere/Pods-knowhere-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -350,7 +349,7 @@
 		};
 		09FC99E12DD59F48003717AD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05A51FC8338ED394C4F37B1E /* Pods-knowhere.debug.xcconfig */;
+			baseConfigurationReference = A96B936679C9FFF9B3FE1177 /* Pods-knowhere.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -382,7 +381,7 @@
 		};
 		09FC99E22DD59F48003717AD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 118915D970CBFD0516E66179 /* Pods-knowhere.release.xcconfig */;
+			baseConfigurationReference = 2CE6E0DC00B3D82554E1B752 /* Pods-knowhere.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -442,14 +441,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
-			};
-		};
-		09C821622E0CAD9100E995C4 /* XCRemoteSwiftPackageReference "google-maps-ios-utils" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/googlemaps/google-maps-ios-utils.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
