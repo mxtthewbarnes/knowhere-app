@@ -7,6 +7,7 @@
 import SwiftUI
 import SwiftEntryKit
 import CoreLocation
+import UIKit
 
 // Initial loading screen
 struct loadingScreen: View {
@@ -15,7 +16,7 @@ struct loadingScreen: View {
             Color(.darkgreyslate)
                 .ignoresSafeArea()
             VStack {
-                Text("Knowhere")
+                Text("Knowhere!")
                     .font(.custom("pacifico", size: 36))
                     .foregroundColor(.white)
                 
@@ -25,34 +26,111 @@ struct loadingScreen: View {
     }
 }
 
+
+
+/* SWIFTENTRYKIT IMPLEMENTATION - MAY BE REMOVED
 // Button styling for menu
 struct MenuButton: View {
+    @State private var isPressed = false
     let imageName: String
     let singleTapAction: () -> Void
     let doubleTapAction: () -> Void
 
     var body: some View {
-            Image(imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100)
-                .padding()
-                .background(.darkgreyslate)
-                .cornerRadius(30)
-                .onTapGesture (count: 2){
-                    doubleTapAction()
-                }
-                .onTapGesture (count: 1){
-                    singleTapAction()
-                        
-                    
-                }
+        let singleTap = TapGesture(count: 1)
+                    .onEnded {
+                        isPressed = true
+                        let impact = UIImpactFeedbackGenerator(style: .medium)
+                        impact.impactOccurred()
+                        singleTapAction()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            isPressed = false
+                        }
+                    }
+
+                let doubleTap = TapGesture(count: 2)
+                    .onEnded {
+                        isPressed = true
+                        let impact = UIImpactFeedbackGenerator(style: .medium)
+                        impact.impactOccurred()
+                        doubleTapAction()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            isPressed = false
+                        }
+                    }
+        Image(imageName)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 100, height: 100)
+            .padding()
+            .background(.darkgreyslate)
+            .cornerRadius(30)
+            .scaleEffect(isPressed ? 0.85:1.0)
+            .animation(.spring(response: 0.3,dampingFraction: 0.5), value: isPressed)
+           // .animation(.smooth(duration: 3.0), value: isPressed)
+            .gesture(doubleTap.simultaneously(with: singleTap))
+
             
             
         }
     }
 
 
+*/
+
+extension GameMode{
+    var displayName: String{
+        switch self{
+        case .usa: return "USA"
+        case .europe: return "Europe"
+        case .world: return "Earth"
+        case .college: return "College Campuses"
+        }
+    }
+}
+
+struct MenuButton: View{
+    @State private var isPressed = false
+    let imageName: String
+    let highScore: Int
+    let doubleTapAction: () -> Void
+    let mode: GameMode
+    
+    
+    var body: some View{
+        ZStack{
+            if isPressed{
+                VStack{
+                Text(mode.displayName).font(.headline)
+                Text("Highscore: \(highScore)")
+                Text("Double tap to play")
+            }
+                .frame(width: 100, height: 100)
+                .background(Color.orange)
+                .cornerRadius(30)
+                
+            } else{
+                Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+                    .cornerRadius(30)
+                    .background(Color.darkgreyslate)
+                
+            }
+        
+    }
+        .onTapGesture {
+            withAnimation(.spring())
+            {
+                isPressed.toggle()
+            }
+        }
+        
+        .onTapGesture(count: 2) {
+            doubleTapAction()
+        }
+}
 
 
 // Main menu implementation
@@ -64,28 +142,32 @@ struct MainMenu: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Text("Knowhere")
+            Text("Knowhere!")
                 .font(.custom("pacifico", size: 50))
                 .foregroundColor(.darkgreyslate)
                 .padding(.top, 60)
             
             HStack(spacing: 10) {
                 MenuButton(imageName: "world",
-                           singleTapAction: {
-                    modeFloat(mode: .usa)
-                        
-                },
+                           highScore: loadHighScore(for: .world),
                            doubleTapAction: {
-                    mode = .world
-                    gameState = .playing
-                }
+                                mode = .world
+                                gameState = .playing
+                    },
+                           mode: .usa
+                           
                 )
+                
             
             
             MenuButton(
                 imageName: "usa-proper",
                 singleTapAction: {
                     modeFloat(mode: .usa)
+                    {
+                        mode = .usa
+                        gameState = .playing
+                    }
                     
                 },
                 doubleTapAction: {
@@ -102,6 +184,11 @@ struct MainMenu: View {
             MenuButton(imageName: "europe",
                        singleTapAction: {
                 modeFloat(mode: .europe)
+                {
+                    mode = .europe
+                    gameState = .playing
+                }
+               
             },
                        doubleTapAction: {
                 mode = .europe
@@ -111,6 +198,10 @@ struct MainMenu: View {
                 imageName: "college",
                 singleTapAction: {
                     modeFloat(mode: .college)
+                    {
+                        mode = .college
+                        gameState = .playing
+                    }
                 },
                 doubleTapAction: {
                     mode = .college
@@ -130,7 +221,7 @@ struct MainMenu: View {
 
 
 //swift entry kit float message w/ highest score/round per gamemode
-func modeFloat(mode: GameMode) {
+func modeFloat(mode: GameMode, onPlay: @escaping ()-> Void) {
     // initializing color
     let hotOrange = UIColor(red: 1.0, green: 0.4, blue: 0.0, alpha: 1.0)
     
@@ -168,7 +259,7 @@ func modeFloat(mode: GameMode) {
         backgroundColor: EKColor(hotOrange),
         highlightedBackgroundColor:  (EKColor(hotOrange).with(alpha: 0.9)),
         action: {
-            SwiftEntryKit.dismiss()
+            onPlay()
         }
         )
     
@@ -201,6 +292,7 @@ func modeFloat(mode: GameMode) {
         button: button,
         action: {
             SwiftEntryKit.dismiss()
+            onPlay()
             
         }
        
