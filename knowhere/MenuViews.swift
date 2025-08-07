@@ -28,55 +28,7 @@ struct loadingScreen: View {
 
 
 
-/* SWIFTENTRYKIT IMPLEMENTATION - MAY BE REMOVED
-// Button styling for menu
-struct MenuButton: View {
-    @State private var isPressed = false
-    let imageName: String
-    let singleTapAction: () -> Void
-    let doubleTapAction: () -> Void
 
-    var body: some View {
-        let singleTap = TapGesture(count: 1)
-                    .onEnded {
-                        isPressed = true
-                        let impact = UIImpactFeedbackGenerator(style: .medium)
-                        impact.impactOccurred()
-                        singleTapAction()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                            isPressed = false
-                        }
-                    }
-
-                let doubleTap = TapGesture(count: 2)
-                    .onEnded {
-                        isPressed = true
-                        let impact = UIImpactFeedbackGenerator(style: .medium)
-                        impact.impactOccurred()
-                        doubleTapAction()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                            isPressed = false
-                        }
-                    }
-        Image(imageName)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 100, height: 100)
-            .padding()
-            .background(.darkgreyslate)
-            .cornerRadius(30)
-            .scaleEffect(isPressed ? 0.85:1.0)
-            .animation(.spring(response: 0.3,dampingFraction: 0.5), value: isPressed)
-           // .animation(.smooth(duration: 3.0), value: isPressed)
-            .gesture(doubleTap.simultaneously(with: singleTap))
-
-            
-            
-        }
-    }
-
-
-*/
 
 extension GameMode{
     var displayName: String{
@@ -102,9 +54,11 @@ struct MenuButton: View{
         ZStack{
             if isPressed{
                 VStack{
-                    Text(mode.displayName).font(.headline)
+                    Text(mode.displayName).font(.custom("pacifico", size: 25))
                     Text("Highscore: \(highScore)")
+                        .font(.system(size: 10))
                     Text("Double tap to play")
+                        .font(.system(size:10))
                 }
                 .padding()
                 .frame(width: 150, height: 150)

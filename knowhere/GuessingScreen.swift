@@ -63,7 +63,8 @@ struct MapGuessingScreen: View {
                         .foregroundColor(.white)
                         .padding()
                         .background(.ultraThinMaterial)
-                        .cornerRadius(10)
+                        .cornerRadius(30)
+                        
                 }
                 .padding()
             }

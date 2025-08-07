@@ -19,6 +19,7 @@ struct GameView: View {
     @State private var timeRemaining = 30
     @State private var timer: Timer?
     @State private var score = 0
+    @State private var exitHome = false
     
     
     let allLocations: [GameMode: [StreetViewLocation]]
@@ -130,7 +131,31 @@ struct GameView: View {
                         .foregroundColor(.white)
                         .font(.custom("pacifico", size: 36))
                 }
+                //-----------------------
+                //      home button
+                //-----------------------
+                VStack {
+                    HStack{
+                        Spacer()
+                        Button(action: {
+                            exitHome = true
+                        })
+                        {
+                            Image(systemName: "house.fill")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(.ultraThinMaterial)
+                                .cornerRadius(30)
+                        }
+                    }
+                    Spacer()
+                }
+                .padding()
                 
+                //-----------------------
+                //   timer/clock icon
+                //-----------------------
                 VStack {
                     Spacer()
                     
